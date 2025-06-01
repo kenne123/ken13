@@ -1,0 +1,1256 @@
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Trang Chủ | Ứng Dụng Quản Lý</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      background-color: #f5f7fa;
+    }
+    a,
+    button {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    a:focus-visible,
+    button:focus-visible {
+      outline: none;
+      box-shadow: 0 0 8px rgba(15, 76, 129, 0.6);
+      transform: translateY(-2px);
+    }
+    a:hover,
+    button:hover {
+      outline: none;
+      box-shadow: 0 0 8px rgba(15, 76, 129, 0.6);
+      transform: translateY(-2px);
+    }
+    button:active,
+    a:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col md:flex-row relative">
+  <!-- Sidebar -->
+  <aside
+    class="bg-white w-full md:w-52 min-h-screen flex flex-col items-center py-6 md:py-8 space-y-4 border-b md:border-b-0 md:border-r border-gray-300 shadow-lg overflow-y-auto"
+  >
+    <h2
+      class="text-white text-3xl font-extrabold mb-6 md:mb-8 select-none tracking-wide px-6 py-3 rounded-md bg-[#0f4c81] w-full text-center"
+      style="font-family: 'Times New Roman', serif"
+    >
+      HỆ THỐNG
+    </h2>
+    <nav
+      class="flex flex-row md:flex-col w-full overflow-x-auto md:overflow-visible space-x-4 md:space-x-0 md:space-y-3 px-4"
+      role="navigation"
+      aria-label="Hệ thống menu"
+    >
+      <a
+        aria-label="Quản Lý Hệ Thống"
+        class="flex items-center space-x-3 text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-3 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81] whitespace-nowrap"
+        href="#"
+        role="button"
+        tabindex="0"
+        data-section="quanLyHeThong"
+      >
+        <i
+          class="fas fa-cog text-[#0f4c81] text-lg w-6 text-center"
+          aria-hidden="true"
+        ></i>
+        <span>Quản Lý Hệ Thống</span>
+      </a>
+      <a
+        aria-label="Trang Chủ"
+        class="flex items-center space-x-3 text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-3 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81] whitespace-nowrap"
+        href="#"
+        role="button"
+        tabindex="0"
+        data-section="trangChu"
+      >
+        <i
+          class="fas fa-home text-[#0f4c81] text-lg w-6 text-center"
+          aria-hidden="true"
+        ></i>
+        <span>Trang Chủ</span>
+      </a>
+      <a
+        aria-label="VIP"
+        class="flex items-center space-x-3 text-[#0f4c81] text-base font-bold rounded-lg px-4 py-3 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81] whitespace-nowrap"
+        href="#"
+        role="button"
+        tabindex="0"
+        data-section="digitalAds"
+      >
+        <i
+          class="fas fa-gem text-[#0f4c81] text-lg w-6 text-center"
+          aria-hidden="true"
+        ></i>
+        <span>VIP</span>
+      </a>
+
+      <!-- Dữ Liệu with submenu -->
+      <div class="relative w-full">
+        <button
+          aria-label="Dữ Liệu"
+          class="flex items-center justify-between w-full text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-3 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81] whitespace-nowrap"
+          type="button"
+          id="duLieuToggle"
+          aria-expanded="false"
+          aria-controls="duLieuSubmenu"
+          data-toggle="submenu"
+        >
+          <span class="flex items-center space-x-3">
+            <i
+              class="fas fa-database text-[#0f4c81] text-lg w-6 text-center"
+              aria-hidden="true"
+            ></i>
+            <span>Dữ Liệu</span>
+          </span>
+          <i class="fas fa-chevron-down text-[#0f4c81] transition-transform duration-300" id="duLieuChevron"></i>
+        </button>
+        <nav
+          id="duLieuSubmenu"
+          class="hidden flex flex-col space-y-2 mt-1 pl-10 pr-4 overflow-auto"
+          role="menu"
+          aria-label="Các mục nhỏ Dữ Liệu"
+        >
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="duLieuCaNhan"
+          >
+            Dữ Liệu Cá Nhân
+          </a>
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="danhSachDangKy"
+          >
+            Danh Sách Đăng Ký
+          </a>
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="duLieuHoanThanh"
+          >
+            Dữ Liệu Hoàn Thành
+          </a>
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="duLieuThatBai"
+          >
+            Dữ Liệu Thất Bại
+          </a>
+        </nav>
+      </div>
+
+      <!-- Tín Nhiệm with submenu -->
+      <div class="relative w-full">
+        <button
+          aria-label="Tín Nhiệm"
+          class="flex items-center justify-between w-full text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-3 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81] whitespace-nowrap"
+          type="button"
+          id="tinNhiemToggle"
+          aria-expanded="false"
+          aria-controls="tinNhiemSubmenu"
+          data-toggle="submenu"
+        >
+          <span class="flex items-center space-x-3">
+            <i
+              class="fas fa-shield-alt text-[#0f4c81] text-lg w-6 text-center"
+              aria-hidden="true"
+            ></i>
+            <span>Tín Nhiệm</span>
+          </span>
+          <i class="fas fa-chevron-down text-[#0f4c81] transition-transform duration-300" id="tinNhiemChevron"></i>
+        </button>
+        <nav
+          id="tinNhiemSubmenu"
+          class="hidden flex flex-col space-y-2 mt-1 pl-10 pr-4 overflow-auto"
+          role="menu"
+          aria-label="Các mục nhỏ Tín Nhiệm"
+        >
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="xayDungTinNhiem"
+          >
+            Xây Dựng Tín Nhiệm
+          </a>
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="tinNhiemNangCao"
+          >
+            Tín Nhiệm Nâng Cao
+          </a>
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="bienPhapKhacPhucTinNhiem"
+          >
+            Biện Pháp Khắc Phục
+          </a>
+        </nav>
+      </div>
+
+      <!-- Thanh Toán with submenu -->
+      <div class="relative w-full">
+        <button
+          aria-label="Thanh Toán"
+          class="flex items-center justify-between w-full text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-3 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81] whitespace-nowrap"
+          type="button"
+          id="thanhToanToggle"
+          aria-expanded="false"
+          aria-controls="thanhToanSubmenu"
+          data-toggle="submenu"
+        >
+          <span class="flex items-center space-x-3">
+            <i
+              class="fas fa-credit-card text-[#0f4c81] text-lg w-6 text-center"
+              aria-hidden="true"
+            ></i>
+            <span>Thanh Toán</span>
+          </span>
+          <i class="fas fa-chevron-down text-[#0f4c81] transition-transform duration-300" id="thanhToanChevron"></i>
+        </button>
+        <nav
+          id="thanhToanSubmenu"
+          class="hidden flex flex-col space-y-2 mt-1 pl-10 pr-4 overflow-auto"
+          role="menu"
+          aria-label="Các mục nhỏ Thanh Toán"
+        >
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="thongTinThanhToan"
+          >
+            Thông Tin Thanh Toán
+          </a>
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="thongTinTatToan"
+          >
+            Thông Tin Tất Toán
+          </a>
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="tatToanThanhCong"
+          >
+            Tất Toán Thành Công
+          </a>
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="tatToanThatBai"
+          >
+            Tất Toán Thất Bại
+          </a>
+        </nav>
+      </div>
+
+      <!-- Hóa Đơn with submenu -->
+      <div class="relative w-full">
+        <button
+          aria-label="Hóa Đơn"
+          class="flex items-center justify-between w-full text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-3 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81] whitespace-nowrap"
+          type="button"
+          id="hoaDonToggle"
+          aria-expanded="false"
+          aria-controls="hoaDonSubmenu"
+          data-toggle="submenu"
+        >
+          <span class="flex items-center space-x-3">
+            <i
+              class="fas fa-file-invoice text-[#0f4c81] text-lg w-6 text-center"
+              aria-hidden="true"
+            ></i>
+            <span>Hóa Đơn</span>
+          </span>
+          <i class="fas fa-chevron-down text-[#0f4c81] transition-transform duration-300" id="hoaDonChevron"></i>
+        </button>
+        <nav
+          id="hoaDonSubmenu"
+          class="hidden flex flex-col space-y-2 mt-1 pl-10 pr-4 overflow-auto"
+          role="menu"
+          aria-label="Các mục nhỏ Hóa Đơn"
+        >
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="thueTNCN"
+          >
+            Thuế TNCN
+          </a>
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="phiGiaiNgan"
+          >
+            Phí Giải Ngân
+          </a>
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="traCuuDuLieuHoaDon"
+          >
+            Tra Cứu Dữ Liệu
+          </a>
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="bienPhapKhacPhucHoaDon"
+          >
+            Biện Pháp Khắc Phục
+          </a>
+        </nav>
+      </div>
+
+      <!-- Thông Báo -->
+      <div class="relative w-full">
+        <button
+          aria-label="Thông Báo"
+          class="flex items-center space-x-3 text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-3 w-full hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81] whitespace-nowrap justify-between"
+          type="button"
+          id="thongBaoToggle"
+          aria-expanded="false"
+          aria-controls="thongBaoSubmenu"
+          data-toggle="submenu"
+        >
+          <span class="flex items-center space-x-3">
+            <i
+              class="fas fa-bell text-[#0f4c81] text-lg w-6 text-center"
+              aria-hidden="true"
+            ></i>
+            <span>Thông Báo</span>
+          </span>
+          <i class="fas fa-chevron-down text-[#0f4c81] transition-transform duration-300" id="thongBaoChevron"></i>
+        </button>
+        <nav
+          id="thongBaoSubmenu"
+          class="hidden flex flex-col space-y-2 mt-1 pl-10 pr-4 overflow-auto"
+          role="menu"
+          aria-label="Các mục nhỏ Thông Báo"
+        >
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="khacPhucLoiDuLieu"
+          >
+            Khắc Phục Lỗi Dữ Liệu
+          </a>
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="traCuuDuLieuThongBao"
+          >
+            Tra Cứu Dữ Liệu
+          </a>
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="bienPhapKhacPhucThongBao"
+          >
+            Biện pháp khắc phục
+          </a>
+          <a
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+            class="text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-2 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81]"
+            data-section="ketQua"
+          >
+            Kết Quả
+          </a>
+        </nav>
+      </div>
+
+      <a
+        aria-label="Báo Cáo"
+        class="flex items-center space-x-3 text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-3 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81] whitespace-nowrap"
+        href="#"
+        role="button"
+        tabindex="0"
+        data-section="baoCao"
+      >
+        <i
+          class="fas fa-file-alt text-[#0f4c81] text-lg w-6 text-center"
+          aria-hidden="true"
+        ></i>
+        <span>Báo Cáo</span>
+      </a>
+      <a
+        aria-label="Cài Đặt"
+        class="flex items-center space-x-3 text-[#0f4c81] text-base font-semibold rounded-lg px-4 py-3 hover:bg-[#e6f0f9] focus-visible:bg-[#cce0f7] focus-visible:ring-2 focus-visible:ring-[#0f4c81] whitespace-nowrap"
+        href="#"
+        role="button"
+        tabindex="0"
+        data-section="caiDat"
+      >
+        <i
+          class="fas fa-cogs text-[#0f4c81] text-lg w-6 text-center"
+          aria-hidden="true"
+        ></i>
+        <span>Cài Đặt</span>
+      </a>
+    </nav>
+    <img
+      alt="Logo Đã Thông Báo Bộ Công Thương, blue background with white checkmark and text"
+      class="mt-auto rounded-md shadow-lg max-w-[140px] w-full"
+      height="50"
+      loading="lazy"
+      src="https://dangkywebvoibocongthuong.com/wp-content/uploads/2021/11/logo-da-thong-bao-bo-cong-thuong.png"
+      width="140"
+    />
+  </aside>
+ <!-- Main content -->
+<main class="flex-1 p-6 md:p-8 max-w-7xl mx-auto w-full overflow-auto relative">
+   <h1 class="text-[#0f4c81] text-3xl md:text-4xl font-bold text-center mb-8 md:mb-10 select-none tracking-wide" style="font-family: 'Times New Roman', serif" id="mainTitle" tabindex="0">
+     Trang Chủ
+   </h1>
+   <div class="flex flex-wrap justify-center gap-4 mb-8 md:mb-10 items-center">
+    <button aria-label="Cập Nhật" class="border border-[#0f4c81] text-[#0f4c81] rounded-lg px-5 md:px-6 py-3 text-base font-semibold hover:bg-[#e6f0f9] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#0f4c81] flex items-center gap-3 shadow-sm" type="button">
+     <i class="fas fa-sync-alt" aria-hidden="true"></i>
+     Cập Nhật
+    </button>
+    <button aria-label="Kiểm Tra Thông Tin Hồ Sơ" class="border border-[#0f4c81] text-[#0f4c81] rounded-lg px-5 md:px-6 py-3 text-base font-semibold hover:bg-[#e6f0f9] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#0f4c81] flex items-center gap-3 shadow-sm" type="button">
+     <i class="fas fa-list-ul" aria-hidden="true"></i>
+     Kiểm Tra Thông Tin Hồ Sơ
+    </button>
+    <button aria-label="In Ảnh" class="border border-[#0f4c81] text-[#0f4c81] rounded-lg px-5 md:px-6 py-3 text-base font-semibold hover:bg-[#e6f0f9] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#0f4c81] flex items-center gap-3 shadow-sm" type="button">
+     <i class="fas fa-play" aria-hidden="true"></i>
+     In Ảnh
+    </button>
+    <button
+      id="editBtn"
+      type="button"
+      class="border border-[#0f4c81] text-[#0f4c81] rounded-lg px-5 md:px-6 py-3 text-base font-semibold hover:bg-[#e6f0f9] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#0f4c81] flex items-center gap-3 shadow-sm"
+      aria-pressed="false"
+      aria-label="Thông báo"
+    >
+      <i class="fas fa-bell" aria-hidden="true"></i>
+      <span>Thông báo</span>
+    </button>
+    <button
+      id="saveBtn"
+      type="button"
+      class="border border-[#0f4c81] text-[#0f4c81] rounded-lg px-5 md:px-6 py-3 text-base font-semibold hover:bg-[#e6f0f9] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#0f4c81] flex items-center gap-3 shadow-sm hidden"
+      aria-label="Lưu thông báo"
+    >
+      <i class="fas fa-save" aria-hidden="true"></i>
+      <span>Lưu</span>
+    </button>
+   </div>
+
+    <section
+      id="tinNhiemContent"
+      class="prose max-w-none text-gray-800 bg-white p-6 rounded-lg shadow-md transition-opacity duration-300 ease-in-out"
+      tabindex="0"
+      aria-label="Nội dung Tín Nhiệm"
+    >
+      <h2 class="text-[#0f4c81] text-2xl font-bold mb-4 select-none tracking-wide" style="font-family: 'Times New Roman', serif" tabindex="0">
+        Tín Nhiệm
+      </h2>
+      <p>
+        Nội dung có thể bao gồm nhiều đoạn văn, danh sách, hoặc các phần tử HTML khác. Ví dụ:
+      </p>
+      <ul class="list-disc list-inside">
+        <li>Quản lý vật tư quân sự hiệu quả</li>
+        <li>Theo dõi giao dịch nhanh chóng</li>
+        <li>Báo cáo chi tiết và chính xác</li>
+      </ul>
+      <p>
+        Bạn có thể nhập nội dung tùy ý khi ở chế độ chỉnh sửa.
+      </p>
+    </section>
+
+    <section
+      id="giaoDichContent"
+      class="prose max-w-none text-gray-800 bg-white p-6 rounded-lg shadow-md hidden transition-opacity duration-300 ease-in-out"
+      tabindex="0"
+      aria-label="Nội dung Giao Dịch Vật Tư Quân Sự"
+    >
+      <h2 class="text-[#0f4c81] text-2xl font-bold mb-4 select-none tracking-wide" style="font-family: 'Times New Roman', serif" tabindex="0">
+        Giao Dịch Vật Tư Quân Sự
+      </h2>
+      <p>
+        Đây là nội dung mặc định của ứng dụng Giao Dịch Vật Tư Quân Sự. Bạn có thể chỉnh sửa nội dung này bằng cách nhấn nút "Chỉnh sửa" ở góc trên bên phải. Sau khi chỉnh sửa xong, nhấn "Lưu" để lưu lại nội dung.
+      </p>
+      <p>
+        Nội dung có thể bao gồm nhiều đoạn văn, danh sách, hoặc các phần tử HTML khác. Ví dụ:
+      </p>
+      <ul class="list-disc list-inside">
+        <li>Quản lý vật tư quân sự hiệu quả</li>
+        <li>Theo dõi giao dịch nhanh chóng</li>
+        <li>Báo cáo chi tiết và chính xác</li>
+      </ul>
+      <p>
+        Bạn có thể nhập nội dung tùy ý khi ở chế độ chỉnh sửa.
+      </p>
+    </section>
+
+     <section
+      id="thanhToanContent"
+      class="prose max-w-none text-gray-800 bg-white p-6 rounded-lg shadow-md hidden transition-opacity duration-300 ease-in-out"
+      tabindex="0"
+      aria-label="Nội dung Thanh Toán"
+    >
+      <h2 class="text-[#0f4c81] text-2xl font-bold mb-4 select-none tracking-wide" style="font-family: 'Times New Roman', serif" tabindex="0">
+        Thanh Toán 
+      </h2>
+      <p>
+        Nội dung có thể bao gồm nhiều đoạn văn, danh sách, hoặc các phần tử HTML khác. Ví dụ:
+      </p>
+      <ul class="list-disc list-inside">
+        <li>Thông tin phương thức thanh toán</li>
+        <li>Hướng dẫn thanh toán nhanh chóng và an toàn</li>
+        <li>Chính sách hoàn tiền và bảo mật</li>
+      </ul>
+      <p>
+        Bạn có thể nhập nội dung tùy ý khi ở chế độ chỉnh sửa.
+      </p>
+    </section>
+
+    <section
+      id="quanLyHeThongContent"
+      class="prose max-w-none text-gray-800 bg-white p-6 rounded-lg shadow-md hidden transition-opacity duration-300 ease-in-out"
+      tabindex="0"
+      aria-label="Nội dung Quản Lý Hệ Thống"
+    >
+      <h2 class="text-[#0f4c81] text-2xl font-bold mb-4 select-none tracking-wide" style="font-family: 'Times New Roman', serif" tabindex="0">
+        Quản Lý Hệ Thống
+      </h2>
+      <p>
+        Nội dung quản lý hệ thống giúp bạn kiểm soát và điều chỉnh các thiết lập của ứng dụng.
+      </p>
+      <ul class="list-disc list-inside">
+        <li>Thiết lập người dùng</li>
+        <li>Quản lý quyền truy cập</li>
+        <li>Cấu hình hệ thống</li>
+      </ul>
+      <p>
+        Bạn có thể nhập nội dung tùy ý khi ở chế độ chỉnh sửa.
+      </p>
+    </section>
+
+    <section
+      id="trangChuContent"
+      class="prose max-w-none text-gray-800 bg-white p-6 rounded-lg shadow-md hidden transition-opacity duration-300 ease-in-out"
+      tabindex="0"
+      aria-label="Nội dung Trang Chủ"
+    >
+      <h2 class="text-[#0f4c81] text-2xl font-bold mb-4 select-none tracking-wide" style="font-family: 'Times New Roman', serif" tabindex="0">
+        Trang Chủ
+      </h2>
+      <p>
+        Chào mừng bạn đến với trang chủ của ứng dụng quản lý.
+      </p>
+      <p>
+        Tại đây bạn có thể truy cập nhanh các chức năng chính và xem thông tin tổng quan.
+      </p>
+      <p>
+        Bạn có thể nhập nội dung tùy ý khi ở chế độ chỉnh sửa.
+      </p>
+    </section>
+
+    <section
+      id="digitalAdsContent"
+      class="prose max-w-none text-gray-800 bg-white p-6 rounded-lg shadow-md hidden transition-opacity duration-300 ease-in-out"
+      tabindex="0"
+      aria-label="Nội dung VIP"
+    >
+      <h2 class="text-[#0f4c81] text-2xl font-bold mb-4 select-none tracking-wide" style="font-family: 'Times New Roman', serif" tabindex="0">
+        VIP
+      </h2>
+      <p>
+        Quản lý các chương trình và quyền lợi VIP dành cho khách hàng.
+      </p>
+      <ul class="list-disc list-inside">
+        <li>Ưu đãi đặc biệt</li>
+        <li>Quyền truy cập nâng cao</li>
+        <li>Dịch vụ hỗ trợ riêng biệt</li>
+      </ul>
+      <p>
+        Bạn có thể nhập nội dung tùy ý khi ở chế độ chỉnh sửa.
+      </p>
+    </section>
+
+    <section
+      id="duLieuContent"
+      class="prose max-w-none text-gray-800 bg-white p-6 rounded-lg shadow-md hidden transition-opacity duration-300 ease-in-out"
+      tabindex="0"
+      aria-label="Nội dung Dữ Liệu"
+    >
+      <h2 class="text-[#0f4c81] text-2xl font-bold mb-4 select-none tracking-wide" style="font-family: 'Times New Roman', serif" tabindex="0">
+        Dữ Liệu
+      </h2>
+      <p>
+        Quản lý và phân tích dữ liệu quan trọng của hệ thống.
+      </p>
+      <ul class="list-disc list-inside">
+        <li>Nhập xuất dữ liệu</li>
+        <li>Thống kê và báo cáo</li>
+        <li>Quản lý cơ sở dữ liệu</li>
+      </ul>
+      <p>
+        Bạn có thể nhập nội dung tùy ý khi ở chế độ chỉnh sửa.
+      </p>
+    </section>
+
+    <section
+      id="khuyenMaiContent"
+      class="prose max-w-none text-gray-800 bg-white p-6 rounded-lg shadow-md hidden transition-opacity duration-300 ease-in-out"
+      tabindex="0"
+      aria-label="Nội dung Khuyến Mãi"
+    >
+      <h2 class="text-[#0f4c81] text-2xl font-bold mb-4 select-none tracking-wide" style="font-family: 'Times New Roman', serif" tabindex="0">
+        Khuyến Mãi
+      </h2>
+      <p>
+        Quản lý các chương trình khuyến mãi và ưu đãi cho khách hàng.
+      </p>
+      <ul class="list-disc list-inside">
+        <li>Tạo chương trình khuyến mãi</li>
+        <li>Quản lý ưu đãi</li>
+        <li>Theo dõi hiệu quả</li>
+      </ul>
+      <p>
+        Bạn có thể nhập nội dung tùy ý khi ở chế độ chỉnh sửa.
+      </p>
+    </section>
+
+    <section
+      id="hoaDonContent"
+      class="prose max-w-none text-gray-800 bg-white p-6 rounded-lg shadow-md hidden transition-opacity duration-300 ease-in-out"
+      tabindex="0"
+      aria-label="Nội dung Hóa Đơn"
+    >
+      <h2 class="text-[#0f4c81] text-2xl font-bold mb-4 select-none tracking-wide" style="font-family: 'Times New Roman', serif" tabindex="0">
+        Hóa Đơn
+      </h2>
+      <p>
+        Quản lý và theo dõi các hóa đơn phát sinh trong hệ thống.
+      </p>
+      <ul class="list-disc list-inside">
+        <li>Tạo hóa đơn</li>
+        <li>Tra cứu hóa đơn</li>
+        <li>Báo cáo doanh thu</li>
+      </ul>
+      <p>
+        Bạn có thể nhập nội dung tùy ý khi ở chế độ chỉnh sửa.
+      </p>
+    </section>
+
+    <section
+      id="thongBaoContent"
+      class="prose max-w-none text-gray-800 bg-white p-6 rounded-lg shadow-md hidden transition-opacity duration-300 ease-in-out"
+      tabindex="0"
+      aria-label="Nội dung Thông Báo"
+    >
+      <h2 class="text-[#0f4c81] text-2xl font-bold mb-4 select-none tracking-wide" style="font-family: 'Times New Roman', serif" tabindex="0">
+        Thông Báo
+      </h2>
+      <p>
+        Các thông báo quan trọng và cập nhật mới nhất từ hệ thống.
+      </p>
+      <ul class="list-disc list-inside">
+        <li>Thông báo bảo trì</li>
+        <li>Cập nhật tính năng</li>
+        <li>Khuyến cáo bảo mật</li>
+      </ul>
+      <p>
+        Bạn có thể nhập nội dung tùy ý khi ở chế độ chỉnh sửa.
+      </p>
+    </section>
+
+    <section
+      id="khacPhucLoiDuLieuContent"
+      class="prose max-w-none text-gray-800 bg-white p-6 rounded-lg shadow-md hidden transition-opacity duration-300 ease-in-out"
+      tabindex="0"
+      aria-label="Nội dung Khắc Phục Lỗi Dữ Liệu"
+    >
+      <h2 class="text-[#0f4c81] text-2xl font-bold mb-4 select-none tracking-wide" style="font-family: 'Times New Roman', serif" tabindex="0">
+        Khắc Phục Lỗi Dữ Liệu
+      </h2>
+      <p>
+        Hướng dẫn và các bước để khắc phục lỗi dữ liệu trong hệ thống.
+      </p>
+      <ul class="list-disc list-inside">
+        <li>Phân tích nguyên nhân lỗi</li>
+        <li>Thực hiện sửa chữa dữ liệu</li>
+        <li>Kiểm tra và xác nhận dữ liệu sau sửa</li>
+      </ul>
+      <p>
+        Bạn có thể nhập nội dung tùy ý khi ở chế độ chỉnh sửa.
+      </p>
+    </section>
+
+    <section
+      id="traCuuDuLieuContent"
+      class="prose max-w-none text-gray-800 bg-white p-6 rounded-lg shadow-md hidden transition-opacity duration-300 ease-in-out"
+      tabindex="0"
+      aria-label="Nội dung Tra Cứu Dữ Liệu"
+    >
+      <h2 class="text-[#0f4c81] text-2xl font-bold mb-4 select-none tracking-wide" style="font-family: 'Times New Roman', serif" tabindex="0">
+        Tra Cứu Dữ Liệu
+      </h2>
+      <p>
+        Các phương pháp và công cụ để tra cứu dữ liệu nhanh chóng và chính xác.
+      </p>
+      <ul class="list-disc list-inside">
+        <li>Sử dụng bộ lọc nâng cao</li>
+        <li>Tìm kiếm theo từ khóa</li>
+        <li>Xem lịch sử truy cập dữ liệu</li>
+      </ul>
+      <p>
+        Bạn có thể nhập nội dung tùy ý khi ở chế độ chỉnh sửa.
+      </p>
+    </section>
+
+    <section
+      id="bienPhapKhacPhucContent"
+      class="prose max-w-none text-gray-800 bg-white p-6 rounded-lg shadow-md hidden transition-opacity duration-300 ease-in-out"
+      tabindex="0"
+      aria-label="Nội dung Biện Pháp Khắc Phục"
+    >
+      <h2 class="text-[#0f4c81] text-2xl font-bold mb-4 select-none tracking-wide" style="font-family: 'Times New Roman', serif" tabindex="0">
+        Biện Pháp Khắc Phục
+      </h2>
+      <p>
+        Các biện pháp được áp dụng để khắc phục sự cố và nâng cao hiệu quả hệ thống.
+      </p>
+      <ul class="list-disc list-inside">
+        <li>Đào tạo nhân viên</li>
+        <li>Cập nhật phần mềm định kỳ</li>
+        <li>Kiểm tra và bảo trì hệ thống</li>
+      </ul>
+      <p>
+        Bạn có thể nhập nội dung tùy ý khi ở chế độ chỉnh sửa.
+      </p>
+    </section>
+
+    <section
+      id="ketQuaContent"
+      class="prose max-w-none text-gray-800 bg-white p-6 rounded-lg shadow-md hidden transition-opacity duration-300 ease-in-out"
+      tabindex="0"
+      aria-label="Nội dung Kết Quả"
+    >
+      <h2 class="text-[#0f4c81] text-2xl font-bold mb-4 select-none tracking-wide" style="font-family: 'Times New Roman', serif" tabindex="0">
+        Kết Quả
+      </h2>
+      <p>
+        Tổng hợp kết quả sau khi thực hiện các biện pháp khắc phục và cải tiến.
+      </p>
+      <ul class="list-disc list-inside">
+        <li>Giảm thiểu lỗi dữ liệu</li>
+        <li>Tăng tốc độ xử lý</li>
+        <li>Cải thiện độ chính xác báo cáo</li>
+      </ul>
+      <p>
+        Bạn có thể nhập nội dung tùy ý khi ở chế độ chỉnh sửa.
+      </p>
+    </section>
+
+    <section
+      id="baoCaoContent"
+      class="prose max-w-none text-gray-800 bg-white p-6 rounded-lg shadow-md hidden transition-opacity duration-300 ease-in-out"
+      tabindex="0"
+      aria-label="Nội dung Báo Cáo"
+    >
+      <h2 class="text-[#0f4c81] text-2xl font-bold mb-4 select-none tracking-wide" style="font-family: 'Times New Roman', serif" tabindex="0">
+        Báo Cáo
+      </h2>
+      <p>
+        Nội dung báo cáo chi tiết và tổng hợp các số liệu quan trọng.
+      </p>
+      <ul class="list-disc list-inside">
+        <li>Báo cáo hàng tháng</li>
+        <li>Phân tích dữ liệu</li>
+        <li>Đề xuất cải tiến</li>
+      </ul>
+      <p>
+        Bạn có thể nhập nội dung tùy ý khi ở chế độ chỉnh sửa.
+      </p>
+    </section>
+
+    <section
+      id="caiDatContent"
+      class="prose max-w-none text-gray-800 bg-white p-6 rounded-lg shadow-md hidden transition-opacity duration-300 ease-in-out"
+      tabindex="0"
+      aria-label="Nội dung Cài Đặt"
+    >
+      <h2 class="text-[#0f4c81] text-2xl font-bold mb-4 select-none tracking-wide" style="font-family: 'Times New Roman', serif" tabindex="0">
+        Cài Đặt
+      </h2>
+      <p>
+        Thiết lập và cấu hình các tùy chọn của ứng dụng.
+      </p>
+      <ul class="list-disc list-inside">
+        <li>Cài đặt người dùng</li>
+        <li>Quản lý thông báo</li>
+        <li>Tuỳ chỉnh giao diện</li>
+      </ul>
+      <p>
+        Bạn có thể nhập nội dung tùy ý khi ở chế độ chỉnh sửa.
+      </p>
+    </section>
+
+    <div
+      class="mt-10 flex flex-wrap justify-center gap-8"
+      aria-label="Các logo đối tác và công ty"
+    >
+      <div class="text-center text-sm max-w-[140px]">
+        <img
+          alt="EduChange company logo with text EduChange, blue and white color scheme"
+          class="mx-auto mb-3 rounded-md shadow-sm"
+          height="48"
+          src="https://w.ladicdn.com/s550x400/5c7362c6c417ab07e5196b05/59-20250310075033-bfgpy.png"
+          width="140"
+        />
+        <p class="text-gray-700 font-semibold">
+          Công ty Cổ phần Giáo dục EduChange Việt Nam
+        </p>
+      </div>
+      <div class="text-center text-sm max-w-[140px]">
+        <img
+          alt="Logo of Trường Sĩ quan Lục quân 1, military emblem with red star and green background"
+          class="mx-auto mb-3 rounded-md shadow-sm"
+          height="80"
+          src="https://w.ladicdn.com/s450x450/5c7362c6c417ab07e5196b05/58-20250310075033-0ia-q.png"
+          width="80"
+        />
+        <p class="text-gray-700 font-semibold">Trường Sĩ quan Lục quân 1</p>
+      </div>
+      <div class="text-center text-sm max-w-[140px]">
+        <img
+          alt="Logo of Trường Cao đẳng Công nghiệp Quốc phòng, shield with blue and yellow colors"
+          class="mx-auto mb-3 rounded-md shadow-sm"
+          height="80"
+          src="https://w.ladicdn.com/s450x450/5c7362c6c417ab07e5196b05/56-20250310075033-dewhd.png"
+          width="80"
+        />
+        <p class="text-gray-700 font-semibold">
+          Trường Cao đẳng Công nghiệp Quốc phòng
+        </p>
+      </div>
+      <div class="text-center text-sm max-w-[140px]">
+        <img
+          alt="Logo of Các cơ sở Đoàn thanh niên trên cả nước, red flag with yellow star and youth emblem"
+          class="mx-auto mb-3 rounded-md shadow-sm"
+          height="80"
+          src="https://w.ladicdn.com/s450x450/5c7362c6c417ab07e5196b05/55-20250310075033-ans6m.png"
+          width="80"
+        />
+        <p class="text-gray-700 font-semibold">
+          Các cơ sở Đoàn thanh niên trên cả nước
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (() => {
+      const editBtn = document.getElementById("editBtn");
+      const saveBtn = document.getElementById("saveBtn");
+      const mainTitle = document.getElementById("mainTitle");
+
+      // Map section keys to content sections and titles
+      const sections = {
+        tinNhiem: {
+          title: "ĐIỂM TÍN NHIỆM CÁ NHÂN",
+          contentId: "tinNhiemContent",
+        },
+        giaoDich: {
+          title: "GIAO DỊCH VẬT TƯ QUÂN SỰ",
+          contentId: "giaoDichContent",
+        },
+        thanhToan: {
+          title: "THÔNG TIN THANH TOÁN",
+          contentId: "thanhToanContent",
+        },
+        quanLyHeThong: {
+          title: "QUẢN LÝ HỆ THỐNG",
+          contentId: "quanLyHeThongContent",
+        },
+        trangChu: {
+          title: "TRANG CHỦ",
+          contentId: "trangChuContent",
+        },
+        digitalAds: {
+          title: "VIP",
+          contentId: "digitalAdsContent",
+        },
+        duLieuCaNhan: {
+          title: "DỮ LIỆU CÁ NHÂN",
+          contentId: "duLieuContent",
+        },
+        danhSachDangKy: {
+          title: "DANH SÁCH ĐĂNG KÝ",
+          contentId: "duLieuContent",
+        },
+        duLieuHoanThanh: {
+          title: "DỮ LIỆU HOÀN THÀNH",
+          contentId: "duLieuContent",
+        },
+        duLieuThatBai: {
+          title: "DỮ LIỆU THẤT BẠI",
+          contentId: "duLieuContent",
+        },
+        xayDungTinNhiem: {
+          title: "XÂY DỰNG TÍN NHIỆM",
+          contentId: "tinNhiemContent",
+        },
+        tinNhiemNangCao: {
+          title: "TÍN NHIỆM NÂNG CAO",
+          contentId: "tinNhiemContent",
+        },
+        bienPhapKhacPhucTinNhiem: {
+          title: "BIỆN PHÁP KHẮC PHỤC",
+          contentId: "bienPhapKhacPhucContent",
+        },
+        thongTinThanhToan: {
+          title: "THÔNG TIN THANH TOÁN",
+          contentId: "thanhToanContent",
+        },
+        thongTinTatToan: {
+          title: "THÔNG TIN TẤT TOÁN",
+          contentId: "thanhToanContent",
+        },
+        tatToanThanhCong: {
+          title: "TẤT TOÁN THÀNH CÔNG",
+          contentId: "thanhToanContent",
+        },
+        tatToanThatBai: {
+          title: "TẤT TOÁN THẤT BẠI",
+          contentId: "thanhToanContent",
+        },
+        thueTNCN: {
+          title: "THUẾ TNCN",
+          contentId: "hoaDonContent",
+        },
+        phiGiaiNgan: {
+          title: "PHÍ GIẢI NGÂN",
+          contentId: "hoaDonContent",
+        },
+        traCuuDuLieuHoaDon: {
+          title: "TRA CỨU DỮ LIỆU",
+          contentId: "traCuuDuLieuContent",
+        },
+        bienPhapKhacPhucHoaDon: {
+          title: "BIỆN PHÁP KHẮC PHỤC",
+          contentId: "bienPhapKhacPhucContent",
+        },
+        hoaDonKetQua: {
+          title: "KẾT QUẢ",
+          contentId: "ketQuaContent",
+        },
+        hoaDon: {
+          title: "HÓA ĐƠN",
+          contentId: "hoaDonContent",
+        },
+        thongBao: {
+          title: "THÔNG BÁO",
+          contentId: "thongBaoContent",
+        },
+        khacPhucLoiDuLieu: {
+          title: "KHẮC PHỤC LỖI DỮ LIỆU",
+          contentId: "khacPhucLoiDuLieuContent",
+        },
+        traCuuDuLieuThongBao: {
+          title: "TRA CỨU DỮ LIỆU",
+          contentId: "traCuuDuLieuContent",
+        },
+        bienPhapKhacPhucThongBao: {
+          title: "BIỆN PHÁP KHẮC PHỤC",
+          contentId: "bienPhapKhacPhucContent",
+        },
+        ketQua: {
+          title: "KẾT QUẢ",
+          contentId: "ketQuaContent",
+        },
+        baoCao: {
+          title: "BÁO CÁO",
+          contentId: "baoCaoContent",
+        },
+        caiDat: {
+          title: "CÀI ĐẶT",
+          contentId: "caiDatContent",
+        },
+      };
+
+      // Current active section key
+      let currentSectionKey = "tinNhiem";
+
+      // Elements
+      const contentSections = Object.values(sections).reduce((acc, s) => {
+        if (!acc.includes(document.getElementById(s.contentId))) {
+          acc.push(document.getElementById(s.contentId));
+        }
+        return acc;
+      }, []);
+      const sidebarLinks = document.querySelectorAll("aside nav > a, aside nav > div > nav > a, aside nav > div > button[data-toggle='submenu']");
+      const submenuToggles = document.querySelectorAll("aside nav > div > button[data-toggle='submenu']");
+
+      // Show only the selected section content, hide others
+      function showSection(key) {
+        if (!sections[key]) {
+          console.warn("Mục không tồn tại:", key);
+          return;
+        }
+        currentSectionKey = key;
+
+        // Update main title text
+        mainTitle.textContent = sections[key].title;
+
+        // Update document title
+        document.title = sections[key].title + " | Ứng Dụng Quản Lý";
+
+        // Show/hide content sections with fade effect
+        contentSections.forEach(section => {
+          if (section.id === sections[key].contentId) {
+            section.classList.remove("hidden");
+            section.style.opacity = "1";
+          } else {
+            section.style.opacity = "0";
+            setTimeout(() => {
+              section.classList.add("hidden");
+              section.removeAttribute("contenteditable");
+              section.classList.remove("ring-2", "ring-[#0f4c81]", "rounded-md", "p-2");
+            }, 300);
+          }
+        });
+
+        // Remove contenteditable and ring from mainTitle
+        mainTitle.removeAttribute("contenteditable");
+        mainTitle.removeAttribute("aria-label");
+        mainTitle.classList.remove("ring-2", "ring-[#0f4c81]", "rounded-md", "p-1");
+
+        // Reset buttons
+        editBtn.classList.remove("hidden");
+        saveBtn.classList.add("hidden");
+
+        // Update sidebar active states
+        sidebarLinks.forEach(link => {
+          if (link.dataset.section === key) {
+            link.classList.add("text-white", "bg-[#0f4c81]", "shadow-md");
+            link.classList.remove("text-[#0f4c81]", "hover:bg-[#e6f0f9]", "focus-visible:bg-[#cce0f7]");
+            link.setAttribute("aria-current", "page");
+          } else {
+            link.classList.remove("text-white", "bg-[#0f4c81]", "shadow-md");
+            link.classList.add("text-[#0f4c81]", "hover:bg-[#e6f0f9]", "focus-visible:bg-[#cce0f7]");
+            link.removeAttribute("aria-current");
+          }
+        });
+
+        // Handle submenu toggles and highlights
+        submenuToggles.forEach(toggle => {
+          const submenu = document.getElementById(toggle.getAttribute("aria-controls"));
+          const chevron = toggle.querySelector("i.fas.fa-chevron-down");
+          const relatedSections = Array.from(submenu.querySelectorAll("a")).map(a => a.dataset.section);
+          if (relatedSections.includes(key)) {
+            toggle.classList.add("text-white", "bg-[#0f4c81]", "shadow-md");
+            toggle.classList.remove("text-[#0f4c81]", "hover:bg-[#e6f0f9]", "focus-visible:bg-[#cce0f7]");
+            toggle.setAttribute("aria-current", "page");
+            submenu.classList.remove("hidden");
+            toggle.setAttribute("aria-expanded", "true");
+            chevron.classList.add("rotate-180");
+          } else {
+            toggle.classList.remove("text-white", "bg-[#0f4c81]", "shadow-md");
+            toggle.classList.add("text-[#0f4c81]", "hover:bg-[#e6f0f9]", "focus-visible:bg-[#cce0f7]");
+            toggle.removeAttribute("aria-current");
+            submenu.classList.add("hidden");
+            toggle.setAttribute("aria-expanded", "false");
+            chevron.classList.remove("rotate-180");
+          }
+        });
+      }
+
+      // Initialize: show default section
+      showSection(currentSectionKey);
+
+      // Edit button click
+      editBtn.addEventListener("click", () => {
+        const currentContent = document.getElementById(sections[currentSectionKey].contentId);
+        if (!currentContent) return;
+
+        currentContent.setAttribute("contenteditable", "true");
+        currentContent.focus();
+
+        mainTitle.setAttribute("contenteditable", "true");
+        mainTitle.setAttribute("aria-label", "Tiêu đề có thể chỉnh sửa");
+
+        editBtn.classList.add("hidden");
+        saveBtn.classList.remove("hidden");
+
+        currentContent.classList.add("ring-2", "ring-[#0f4c81]", "rounded-md", "p-2");
+        mainTitle.classList.add("ring-2", "ring-[#0f4c81]", "rounded-md", "p-1");
+      });
+
+      // Save button click
+      saveBtn.addEventListener("click", () => {
+        const currentContent = document.getElementById(sections[currentSectionKey].contentId);
+        if (!currentContent) return;
+
+        currentContent.removeAttribute("contenteditable");
+        mainTitle.removeAttribute("contenteditable");
+        mainTitle.removeAttribute("aria-label");
+
+        editBtn.classList.remove("hidden");
+        saveBtn.classList.add("hidden");
+
+        currentContent.classList.remove("ring-2", "ring-[#0f4c81]", "rounded-md", "p-2");
+        mainTitle.classList.remove("ring-2", "ring-[#0f4c81]", "rounded-md", "p-1");
+
+        // Save content and title to localStorage for persistence
+        localStorage.setItem(`content_${currentSectionKey}`, currentContent.innerHTML);
+        localStorage.setItem(`title_${currentSectionKey}`, mainTitle.textContent.trim());
+
+        alert("Nội dung đã được lưu!");
+      });
+
+      // Load saved content and title for each section from localStorage
+      function loadSavedContent() {
+        for (const key in sections) {
+          const contentHTML = localStorage.getItem(`content_${key}`);
+          if (contentHTML) {
+            const el = document.getElementById(sections[key].contentId);
+            if (el) el.innerHTML = contentHTML;
+          }
+          const titleText = localStorage.getItem(`title_${key}`);
+          if (titleText && key === currentSectionKey) {
+            mainTitle.textContent = titleText;
+            document.title = titleText + " | Ứng Dụng Quản Lý";
+          }
+        }
+      }
+      loadSavedContent();
+
+      // Sidebar navigation click
+      sidebarLinks.forEach(link => {
+        link.addEventListener("click", e => {
+          e.preventDefault();
+          const sectionKey = link.dataset.section;
+          if (!sectionKey) return;
+          showSection(sectionKey);
+          loadSavedContent();
+        });
+        // Accessibility: allow Enter or Space to trigger buttons
+        link.addEventListener("keydown", e => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            link.click();
+          }
+        });
+      });
+
+      // Buttons in main content (Cập Nhật, Kiểm Tra Thông Tin Hồ Sơ, In Ảnh, Thông báo, Lưu)
+      document.querySelectorAll("main > div.flex > button").forEach(button => {
+        button.addEventListener("click", e => {
+          if (button.id === "editBtn") {
+            // handled above
+            return;
+          }
+          if (button.id === "saveBtn") {
+            // handled above
+            return;
+          }
+          alert(`Bạn đã bấm vào mục: "${button.textContent.trim()}"`);
+        });
+        button.addEventListener("keydown", e => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            button.click();
+          }
+        });
+      });
+
+      // Toggle submenu buttons with auto-close others
+      submenuToggles.forEach(toggle => {
+        toggle.addEventListener("click", () => {
+          const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+          // Close all other submenus
+          submenuToggles.forEach(otherToggle => {
+            if (otherToggle !== toggle) {
+              const otherSubmenu = document.getElementById(otherToggle.getAttribute("aria-controls"));
+              const otherChevron = otherToggle.querySelector("i.fas.fa-chevron-down");
+              otherSubmenu.classList.add("hidden");
+              otherToggle.setAttribute("aria-expanded", "false");
+              otherChevron.classList.remove("rotate-180");
+            }
+          });
+          // Toggle current submenu
+          const submenu = document.getElementById(toggle.getAttribute("aria-controls"));
+          const chevron = toggle.querySelector("i.fas.fa-chevron-down");
+          if (isExpanded) {
+            submenu.classList.add("hidden");
+            toggle.setAttribute("aria-expanded", "false");
+            chevron.classList.remove("rotate-180");
+          } else {
+            submenu.classList.remove("hidden");
+            toggle.setAttribute("aria-expanded", "true");
+            chevron.classList.add("rotate-180");
+          }
+        });
+        toggle.addEventListener("keydown", e => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            toggle.click();
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
